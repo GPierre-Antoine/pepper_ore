@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 3.5)
+set(PROJECT_NAME Pepper_ore)
+
+project(${PROJECT_NAME})
+
+set(CMAKE_BINARY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/build")
+
+set(CMAKE_CXX_FLAGS "-std=c++11 -O3 -W -Wall -Wextra --pedantic -Wno-comment -Wno-unused-variable")
+
+if (CMAKE_BUILD_TYPE MATCHES "Debug")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
+endif (CMAKE_BUILD_TYPE MATCHES "Debug")
+
+
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Module")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+file(GLOB_RECURSE SOURCE src/*.cpp src/*.h src/*.hpp)
+set(SOURCE_FILES ${SOURCE})
+set(EXECUTABLE_NAME ${PROJECT_NAME})
+
+set(ENABLE_MAKE_EXECUTABLE TRUE)
+IF (${ENABLE_MAKE_EXECUTABLE})
+    add_executable(${EXECUTABLE_NAME} main.cpp ${SOURCE_FILES})
+ENDIF (${ENABLE_MAKE_EXECUTABLE})
+
+
+set(COMPILED_TEST FALSE)
+IF (IS_DIRECTORY ${CMAKE_SOURCE_DIR}/catch)
+    include_directories("catch")
+    IF (COMPILED_TEST)
+        add_executable(${EXECUTABLE_NAME}_tests ${CMAKE_SOURCE_DIR}/catch/tests/${COMPILED_TEST}_test.cpp ${SOURCE_FILES})
+    ENDIF (COMPILED_TEST)
+ENDIF (IS_DIRECTORY ${CMAKE_SOURCE_DIR}/catch)
