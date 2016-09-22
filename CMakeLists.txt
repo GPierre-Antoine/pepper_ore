@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 set(PROJECT_NAME Pepper_ore)
-
+set(CMAKE_VERBOSE_MAKEFILE FALSE)
 project(${PROJECT_NAME})
 
 set(CMAKE_BINARY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/build")

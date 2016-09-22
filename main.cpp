@@ -1,14 +1,25 @@
-#include <iostream>
+#include <iostream>     //cout
+#include <vector>       //vector
+#include <memory>       //shared ptr
+#include "src/dom/hr.hpp"
+#include "src/dom/img.hpp"
+#include "src/dom/attributes/attribute.h"
 
+using namespace pa::html;
+using std::cout;
+using std::endl;
+using namespace std;
 
-#include "src/dom_node.h"
+using namespace pa::html_attr;
 
-using namespace pa::dom;
-using pa::dom::dom_node;
 
 int main ()
 {
-    dom_node d = dom_node ();
-    std::cout << "Hello, World!" << std::endl;
+    attribute attr = attribute("img","src/aze/aze");
+    vector<shared_ptr<dom_node>> vec;
+    vec.push_back (shared_ptr<dom_node>(new hr()));
+    vec.push_back (shared_ptr<dom_node>(new img()));
+    for (const shared_ptr<dom_node> & it : vec)
+        cout << it->edit () << endl;
     return 0;
 }
