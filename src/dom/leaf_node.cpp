@@ -15,5 +15,5 @@ leaf_node::leaf_node (const string & tag) noexcept : dom_node (tag)
 std::string leaf_node::edit () const noexcept
 {
 
-    return '<' + node_id + edit_tags ()+" />";
+    return '<' + node_id + edit_tags ()+"/>";
 }
