@@ -29,8 +29,20 @@ bool dom_node::operator == (const dom_node & other) const
 std::string dom_node::edit_tags () const noexcept
 {
     if (!tags.size()) return "";
-    string temp = " ";
-    for (const std::pair<string,string>& p : tags)
-        temp+= p.first + "=\"" + p.second + "\"";
+    std::string temp;
+    for (const pa::html_attr::attribute & p : tags)
+        temp += ' ' + p.edit ();
     return temp;
+}
+
+dom_node & dom_node::attribute_insert (const pa::html_attr::attribute & attr)
+{
+    tags.insert(attr);
+    return *this;
+}
+
+dom_node & dom_node::attribute_remove (const html_attr::attribute & attr)
+{
+    tags.erase(attr);
+    return *this;
 }
