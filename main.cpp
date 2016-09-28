@@ -15,10 +15,20 @@ using namespace pa::html_attr;
 
 int main ()
 {
-    attribute attr = attribute("img","src/aze/aze");
     vector<shared_ptr<dom_node>> vec;
+    vector<shared_ptr<attribute>> attributes;
+
+
     vec.push_back (shared_ptr<dom_node>(new hr()));
     vec.push_back (shared_ptr<dom_node>(new img()));
+
+    attributes.push_back (shared_ptr<attribute>(new attribute ("src","/a/b/c")));
+    attributes.push_back (shared_ptr<attribute>(new attribute ("width","320")));
+    attributes.push_back (shared_ptr<attribute>(new attribute ("height","320")));
+
+    for (const shared_ptr<attribute> & i : attributes)
+        vec[1]->attribute_insert (*i);
+
     for (const shared_ptr<dom_node> & it : vec)
         cout << it->edit () << endl;
     return 0;
