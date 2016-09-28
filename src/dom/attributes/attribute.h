@@ -2,6 +2,7 @@
 #ifndef PEPPER_ORE_ATTRIBUTES_H
 #define PEPPER_ORE_ATTRIBUTES_H
 
+#define MAGICAL_VAR_TYPE string
 
 #include <string>
 #include "attribute_exception.h"
@@ -14,27 +15,41 @@ namespace pa
         class attribute
         {
         public:
-            attribute (const std::string & key) noexcept;
-            attribute (const std::string & key, const std::string & value) noexcept;
+            attribute (const std::MAGICAL_VAR_TYPE & key) noexcept;
+            attribute (const std::MAGICAL_VAR_TYPE & key,
+                       const std::MAGICAL_VAR_TYPE & value) noexcept;
             attribute (const attribute & other) noexcept;
 
-            virtual std::string edit () const noexcept;
+            virtual std::MAGICAL_VAR_TYPE edit () const noexcept;
 
             void operator = (const attribute & other) throw (attribute_exception);
 
             bool operator == (const attribute & other) const noexcept;
             bool has_same_key_as (const attribute & other) const noexcept;
 
-            const std::string & get_key () const noexcept;
-            const std::string & get_value () const noexcept;
+            const std::MAGICAL_VAR_TYPE & get_key () const noexcept;
+            const std::MAGICAL_VAR_TYPE & get_value () const noexcept;
         private:
-            const std::string key;
-            std::string value;
+            const std::MAGICAL_VAR_TYPE key;
+            std::MAGICAL_VAR_TYPE value;
         protected:
-            void set_value (const std::string & value) noexcept;
+            void set_value (const std::MAGICAL_VAR_TYPE & value) noexcept;
 
         };
     }//ns html
 }//ns pa
 
+namespace std
+{
+    template <>
+    struct hash<pa::html_attr::attribute>
+    {
+        size_t operator() (const pa::html_attr::attribute & key) const noexcept
+        {
+            return hash<std::MAGICAL_VAR_TYPE>()(key.get_key ());
+        }
+    };
+}
+
+#undef MAGICAL_VAR_TYPE
 #endif //PEPPER_ORE_ATTRIBUTES_H

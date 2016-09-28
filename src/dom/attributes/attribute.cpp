@@ -4,14 +4,17 @@
 
 #include "attribute.h"
 
+#define MAGICAL_VAR_TYPE string
+
 using pa::html_attr::attribute;
 
-attribute::attribute (const std::string & key, const std::string & value) noexcept : key (key), value (value)
+attribute::attribute (const std::MAGICAL_VAR_TYPE & key,
+                      const std::MAGICAL_VAR_TYPE & value) noexcept : key (key), value (value)
 {
 
 }
 
-attribute::attribute (const std::string & key) noexcept : key (key)
+attribute::attribute (const std::MAGICAL_VAR_TYPE & key) noexcept : key (key)
 {
 
 }
@@ -30,10 +33,10 @@ void attribute::operator = (const attribute & other) throw (attribute_exception)
 
 bool attribute::operator == (const attribute & other) const noexcept
 {
-    return ((this == &other) | ((get_key () == other.get_key ()) & (get_value () == other.get_value ())));
+    return has_same_key_as (other) && other.get_value () == get_value ();
 }
 
-std::string attribute::edit () const noexcept
+std::MAGICAL_VAR_TYPE attribute::edit () const noexcept
 {
     char separator = '"';
     if (value.find ('"') != std::string::npos)
@@ -41,17 +44,17 @@ std::string attribute::edit () const noexcept
     return get_key () + '=' + separator + get_value () + separator;
 }
 
-const std::string & attribute::get_key () const noexcept
+const std::MAGICAL_VAR_TYPE & attribute::get_key () const noexcept
 {
     return key;
 }
 
-const std::string & attribute::get_value () const noexcept
+const std::MAGICAL_VAR_TYPE & attribute::get_value () const noexcept
 {
     return value;
 }
 
-void attribute::set_value (const std::string & value) noexcept
+void attribute::set_value (const std::MAGICAL_VAR_TYPE & value) noexcept
 {
     attribute::value = value;
 }
@@ -60,3 +63,5 @@ bool attribute::has_same_key_as (const attribute & other) const noexcept
 {
     return ((this == &other) | (get_key () == other.get_key ()));
 }
+
+#undef MAGICAL_VAR_TYPE
