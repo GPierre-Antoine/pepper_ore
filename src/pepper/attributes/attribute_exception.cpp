@@ -5,7 +5,7 @@
 #include "attribute_exception.h"
 
 
-using pa::html_attr::attribute_exception;
+using SC::pepper::attribute::attribute_exception;
 
 
 attribute_exception::attribute_exception ()

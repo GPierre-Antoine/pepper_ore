@@ -5,10 +5,10 @@
 #include "leaf_node.h"
 #include <algorithm>
 
-using pa::html::leaf_node;
+using SC::pepper::html::leaf_node;
 using std::string;
 
-leaf_node::leaf_node (const string & tag) noexcept : dom_node (tag)
+leaf_node::leaf_node (const string & tag) noexcept : pepper::html::node (tag)
 {
 }
 
