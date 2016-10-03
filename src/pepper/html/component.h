@@ -14,24 +14,24 @@ namespace SC
     {
         namespace html
         {
-            class node
+            class component
             {
             public:
-                node (const std::string & node_name);
+                component (const std::string & node_name);
 
-                node (const node & other);
+                component (const component & other);
 
-                bool operator == (const node & other) const;
+                bool operator == (const component & other) const;
 
-                node & attribute_insert (const pepper::attribute::attribute & attr);
+                component & attribute_insert (const pepper::attribute::attribute & attr);
 
-                node & attribute_remove (const pepper::attribute::attribute & attr);
+                component & attribute_remove (const pepper::attribute::attribute & attr);
 
                 //todo iterator.
 
                 virtual std::string edit () const noexcept = 0;
 
-                virtual ~node ()
+                virtual ~component ()
                 {}
 
             private:

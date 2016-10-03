@@ -2,7 +2,7 @@
 #ifndef PEPPER_ORE_IMG_H
 #define PEPPER_ORE_IMG_H
 
-#include "leaf_node.h"
+#include "leaf.h"
 
 namespace SC
 {
@@ -10,11 +10,11 @@ namespace SC
     {
         namespace html
         {
-            class img : public leaf_node
+            class img : public leaf
             {
             public:
                 img () :
-                        leaf_node ("img")
+                        leaf ("img")
                 {}
 
                 virtual ~img ()

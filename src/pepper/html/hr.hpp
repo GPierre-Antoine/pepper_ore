@@ -2,7 +2,7 @@
 #ifndef PEPPER_ORE_HR_H
 #define PEPPER_ORE_HR_H
 
-#include "leaf_node.h"
+#include "leaf.h"
 
 namespace SC
 {
@@ -10,11 +10,11 @@ namespace SC
     {
         namespace html
         {
-            class hr : public html::leaf_node
+            class hr : public html::leaf
             {
             public:
                 hr () :
-                        leaf_node ("hr")
+                        leaf ("hr")
                 {}
 
                 virtual ~hr ()

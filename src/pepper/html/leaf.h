@@ -2,7 +2,7 @@
 #ifndef PEPPER_ORE_LEAF_NODE_H
 #define PEPPER_ORE_LEAF_NODE_H
 
-#include "node.h"
+#include "component.h"
 
 namespace SC
 {
@@ -10,14 +10,14 @@ namespace SC
     {
         namespace html
         {
-            class leaf_node : public html::node
+            class leaf : public html::component
             {
             public:
-                leaf_node (const std::string & tag) noexcept;
+                leaf (const std::string & tag) noexcept;
 
                 virtual std::string edit () const noexcept;
 
-                virtual ~leaf_node ()
+                virtual ~leaf ()
                 {}
 
             private:

@@ -15,12 +15,12 @@ using namespace SC::pepper::attribute;
 
 int main ()
 {
-    vector<shared_ptr<node>> vec;
+    vector<shared_ptr<component>> vec;
     vector<shared_ptr<attribute>> attributes;
 
 
-    vec.push_back (shared_ptr<node>(new hr()));
-    vec.push_back (shared_ptr<node>(new img()));
+    vec.push_back (shared_ptr<component>(new hr()));
+    vec.push_back (shared_ptr<component>(new img()));
 
     attributes.push_back (shared_ptr<attribute>(new attribute ("src","/a/b/c")));
     attributes.push_back (shared_ptr<attribute>(new attribute ("width","320")));
@@ -31,7 +31,7 @@ int main ()
     for (const shared_ptr<attribute> & i : attributes)
         vec[1]->attribute_insert (*i);
 
-    for (const shared_ptr<node> & it : vec)
+    for (const shared_ptr<component> & it : vec)
         cout << it->edit () << endl;
     return 0;
 }
