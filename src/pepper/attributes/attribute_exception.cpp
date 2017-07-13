@@ -5,7 +5,7 @@
 #include "attribute_exception.h"
 
 
-using SC::pepper::attribute::attribute_exception;
+using pepper::attribute::attribute_exception;
 
 
 attribute_exception::attribute_exception ()

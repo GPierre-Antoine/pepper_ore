@@ -4,29 +4,28 @@
 
 //
 //TODO 28/09/2016 replace namespace
-namespace SC
+
+namespace pepper
 {
-    namespace pepper
+    namespace editor
     {
-        namespace editor
+        class editor
         {
-            class editor
-            {
-            public:
-                editor ();
+        public:
+            editor ();
 
-                editor (const editor & other);
+            editor (const editor & other);
 
-                void operator = (const editor & other);
+            void operator = (const editor & other);
 
-                bool operator == (const editor & other) const;
+            bool operator == (const editor & other) const;
 
-            private:
+        private:
 
-            protected:
-            };
-        }//ns editor
-    }//ns pepper
-}//ns pa
+        protected:
+        };
+    }//ns editor
+}//ns pepper
+
 
 #endif //PEPPER_ORE_EDITOR_H

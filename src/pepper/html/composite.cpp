@@ -4,15 +4,15 @@
 
 #include "composite.h"
 
-using namespace SC::pepper::html;
+using namespace pepper::html;
 
 
-composite::composite(const std::string &tag) : component(tag)
+composite::composite(const std::string &tag) noexcept : component(tag)
 {
 
 }
 
-std::string SC::pepper::html::composite::edit() const noexcept
+std::string pepper::html::composite::edit() const noexcept
 {
     return '<' + node_id + edit_tags ()+'>'
             + edit_children ()

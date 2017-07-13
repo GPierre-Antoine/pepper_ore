@@ -4,8 +4,7 @@
 
 #include "leaf.h"
 
-namespace SC
-{
+
     namespace pepper
     {
         namespace html
@@ -25,6 +24,5 @@ namespace SC
             };
         }//ns html
     }//ns pepper
-}//ns pa
 
 #endif //PEPPER_ORE_HR_H

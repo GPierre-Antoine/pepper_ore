@@ -4,7 +4,7 @@
 
 #include "component.h"
 
-using SC::pepper::html::component;
+using pepper::html::component;
 using std::string;
 
 component::component (const string & node_name) : node_id (node_name)
@@ -30,18 +30,18 @@ std::string component::edit_tags () const noexcept
 {
     if (!tags.size()) return "";
     std::string temp;
-    for (const SC::pepper::attribute::attribute & p : tags)
+    for (const pepper::attribute::attribute & p : tags)
         temp += ' ' + p.edit ();
     return temp;
 }
 
-component & component::attribute_insert (const SC::pepper::attribute::attribute & attr)
+component & component::add(const pepper::attribute::attribute &attr)
 {
     tags.insert(attr);
     return *this;
 }
 
-component & component::attribute_remove (const SC::pepper::attribute::attribute & attr)
+component & component::remove(const pepper::attribute::attribute &attr)
 {
     tags.erase(attr);
     return *this;

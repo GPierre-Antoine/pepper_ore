@@ -4,27 +4,25 @@
 
 #include "leaf.h"
 
-namespace SC
+
+namespace pepper
 {
-    namespace pepper
+    namespace html
     {
-        namespace html
+        class img : public leaf
         {
-            class img : public leaf
-            {
-            public:
-                img () :
-                        leaf ("img")
-                {}
+        public:
+            img () :
+                    leaf ("img")
+            {}
 
-                virtual ~img ()
-                {}
+            virtual ~img ()
+            {}
 
-            private:
-            protected:
-            };
-        }//ns html
-    }//ns pepper
-}//ns pa
+        private:
+        protected:
+        };
+    }//ns html
+}//ns pepper
 
 #endif //PEPPER_ORE_IMG_H

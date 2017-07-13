@@ -6,7 +6,7 @@
 
 #define MAGICAL_VAR_TYPE string
 
-using SC::pepper::attribute::attribute;
+using pepper::attribute::attribute;
 
 attribute::attribute (const std::MAGICAL_VAR_TYPE & key,
                       const std::MAGICAL_VAR_TYPE & value) noexcept : key (key), value (value)

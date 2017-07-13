@@ -8,8 +8,6 @@
 
 #include "component.h"
 
-namespace SC
-{
     namespace pepper
     {
         namespace html
@@ -21,19 +19,18 @@ namespace SC
 
                 virtual std::string edit () const noexcept;
 
-                virtual ~leaf ()
+                virtual ~composite ()
                 {}
 
             private:
 
-                //std::ordered_set<SC::pepper::html::component> children;
+                //std::ordered_set<pepper::html::component> children;
 
             protected:
                 std::string edit_children() const;
             };
         }//ns html
     }//ns pepper
-}//ns pa
 
 
 #endif //PEPPER_ORE_COMPOSITE_H

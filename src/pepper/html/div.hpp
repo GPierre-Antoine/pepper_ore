@@ -7,27 +7,25 @@
 
 #include "composite.h"
 
-namespace SC
+
+namespace pepper
 {
-    namespace pepper
+    namespace html
     {
-        namespace html
+        class div : public html::composite
         {
-            class div : public html::composite
-            {
-            public:
-                div () :
-                        composite ("hr")
-                {}
+        public:
+            div () :
+                    composite ("hr")
+            {}
 
-                virtual ~hr ()
-                {}
+            virtual ~hr ()
+            {}
 
-            private:
-            protected:
-            };
-        }//ns html
-    }//ns pepper
-}//ns pa
+        private:
+        protected:
+        };
+    }//ns html
+}//ns pepper
 
 #endif //PEPPER_ORE_DIV_H

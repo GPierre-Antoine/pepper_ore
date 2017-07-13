@@ -5,7 +5,7 @@
 #include "editor.h"
 
 //TODO 28/09/2016 replace namespace
-using SC::pepper::editor::editor;
+using pepper::editor::editor;
 
 
 editor::editor ()

@@ -4,28 +4,26 @@
 
 #include "component.h"
 
-namespace SC
+
+namespace pepper
 {
-    namespace pepper
+    namespace html
     {
-        namespace html
+        class leaf : public html::component
         {
-            class leaf : public html::component
-            {
-            public:
-                leaf (const std::string & tag) noexcept;
+        public:
+            leaf (const std::string & tag) noexcept;
 
-                virtual std::string edit () const noexcept;
+            virtual std::string edit () const noexcept;
 
-                virtual ~leaf ()
-                {}
+            virtual ~leaf ()
+            {}
 
-            private:
+        private:
 
-            protected:
-            };
-        }//ns html
-    }//ns pepper
-}//ns pa
+        protected:
+        };
+    }//ns html
+}//ns pepper
 
 #endif //PEPPER_ORE_LEAF_NODE_H

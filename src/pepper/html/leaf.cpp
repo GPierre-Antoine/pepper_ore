@@ -5,7 +5,7 @@
 #include "leaf.h"
 #include <algorithm>
 
-using SC::pepper::html::leaf;
+using pepper::html::leaf;
 using std::string;
 
 leaf::leaf (const string & tag) noexcept : pepper::html::component (tag)
