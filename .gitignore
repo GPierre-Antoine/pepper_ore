@@ -1,2 +1,5 @@
 .idea/
 build/
+css/
+js/
+vendor/
