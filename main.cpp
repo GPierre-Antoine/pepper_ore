@@ -1,22 +1,22 @@
 #include <iostream>     //cout
+
+#include <vector>       //vector
+#include <memory>       //shared ptr
+
 #include <regex>
 
 #include "boost/filesystem.hpp"
 #include "boost/range/adaptor/reversed.hpp"
 
 
-//#include <vector>       //vector
-//#include <memory>       //shared ptr
-//#include "src/pepper/html/hr.hpp"
-//#include "src/pepper/html/img.hpp"
-//#include "src/pepper/attributes/attribute.h"
 
-//using namespace SC::pepper::html;
-//using std::cout;
-//using std::endl;
-//using namespace std;
-//
-//using namespace SC::pepper::attribute;
+#include "src/pepper/attributes/attribute.h"
+
+#include "src/pepper/html/hr.hpp"
+#include "src/pepper/html/img.hpp"
+
+using namespace pepper::html;
+using namespace pepper::attribute;
 
 namespace fs = boost::filesystem;
 
@@ -24,6 +24,9 @@ using std::cout;
 using std::cin;
 using std::cerr;
 using std::endl;
+using std::vector;
+using std::make_shared;
+using std::shared_ptr;
 
 
 #include "fcgi/fcgio.h"
@@ -43,25 +46,23 @@ using std::endl;
 
 int main ()
 {
-//
-//    vector<shared_ptr<component>> vec;
-//    vector<shared_ptr<attribute>> attributes;
-//
-//
-//    vec.push_back (shared_ptr<component>(new hr()));
-//    vec.push_back (shared_ptr<component>(new img()));
-//
-//    attributes.push_back (shared_ptr<attribute>(new attribute ("src","/a/b/c")));
-//    attributes.push_back (shared_ptr<attribute>(new attribute ("width","320")));
-//    attributes.push_back (shared_ptr<attribute>(new attribute ("height","320")));
-//    attributes.push_back (shared_ptr<attribute>(new attribute ("test","320")));
-//
-//
-//    for (const shared_ptr<attribute> & i : attributes)
-//        vec[1]->attribute_insert (*i);
-//
-//    for (const shared_ptr<component> & it : vec)
-//        cout << it->edit () << endl;
+
+    vector<shared_ptr<component>> vec;
+    vector<shared_ptr<attribute>> attributes;
+
+
+    vec.push_back (make_shared<hr>());
+    vec.push_back (make_shared<img>());
+
+    attributes.push_back (make_shared<attribute>(attribute ("src","/a/b/c")));
+    attributes.push_back (make_shared<attribute>(attribute ("width","320")));
+    attributes.push_back (make_shared<attribute>(attribute ("height","320")));
+
+    for (const auto & i : attributes)
+        vec[1]->add(*i);
+
+    for (const shared_ptr<component> & it : vec)
+        cout << it->edit () << endl;
 
     std::locale old;
     std::locale::global(std::locale("fr_FR.UTF-8"));
