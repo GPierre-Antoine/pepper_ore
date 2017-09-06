@@ -3,3 +3,4 @@ build/
 css/
 js/
 vendor/
+cmake-build-debug/
