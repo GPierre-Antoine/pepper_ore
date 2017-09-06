@@ -37,7 +37,6 @@ if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
 
     add_executable(${EXE_NAME} main.cpp
-            ${SOURCE_FILES}
-            )
+            ${SOURCE_FILES})
     target_link_libraries(${EXE_NAME} ${Boost_LIBRARIES} ${FCGI++_LIBRARIES})
 endif()
